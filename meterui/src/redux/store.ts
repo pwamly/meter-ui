@@ -2,7 +2,7 @@ import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 // ============ types =============
 
-interface ProfileType {
+interface ProfileType{
     fullname: string,
     userId: string,
     language: string,
@@ -21,12 +21,12 @@ interface accountType {
     editAccount: boolean
 }
 
-interface initialStateProfileType {
-    ProfileValue: ProfileType
+interface initialStateProfileType{
+    ProfileValue:ProfileType
 }
 
-interface initialStateAccountType {
-    accountValue: accountType
+interface initialStateAccountType{
+    accountValue:accountType
 }
 
 // ============ store =============
@@ -50,13 +50,11 @@ const accountValue = {
     editAccount: false
 } as accountType
 
-
-
 const userSlice = createSlice({
     name: 'profile',
     initialState: { ProfileValue },
     reducers: {
-        editProfile: (state: initialStateProfileType) => {
+        editProfile: (state:initialStateProfileType) => {
             state.ProfileValue.editProfile = !state.ProfileValue.editProfile;
 
         }
@@ -69,7 +67,7 @@ const accountSlice = createSlice({
     name: 'account',
     initialState: { accountValue },
     reducers: {
-        editAccount: (state: initialStateAccountType, action: PayloadAction<string>) => {
+        editAccount: (state:initialStateAccountType, action:PayloadAction<string>) => {
             state.accountValue.accountName = action.payload;
 
         }
