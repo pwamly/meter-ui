@@ -6,7 +6,7 @@ import { useDispatch,useSelector } from "react-redux";
 function App() {
   const dispatch=useDispatch();
   const {editProfile:edit} = useSelector((state:any)=>state.profile);
-  const {accountName} = useSelector((state:any)=>state.account);
+  const {accountName} = useSelector((state:any)=>state.account.accountValue);
 
   return (
     <div>
