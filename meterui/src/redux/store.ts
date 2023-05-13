@@ -1,92 +1,28 @@
-import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice,configureStore } from '@reduxjs/toolkit';
+import { initialStateAStoreType,initialStoreType} from './types';
+import { Reducer } from './reducer';
 
-// ============ types =============
+const initialStore = {
+  profile: {},
+  balance: '',
+  dateCreated: '',
+  location: '',
+  editAccount: false
+} as initialStoreType;
 
-interface ProfileType{
-    fullname: string,
-    userId: string,
-    language: string,
-    location: string,
-    title: string,
-    mobile: string,
-    email: string,
-    editProfile: boolean
-}
-
-interface accountType {
-    accountName: string,
-    balance: string,
-    dateCreated: string,
-    location: string,
-    editAccount: boolean
-}
-
-interface initialStateProfileType{
-    ProfileValue:ProfileType
-}
-
-interface initialStateAccountType{
-    accountValue:accountType
-}
-
-// ============ store =============
-
-const ProfileValue = {
-    fullname: '',
-    userId: '',
-    language: '',
-    location: '',
-    title: '',
-    mobile: '',
-    email: '',
-    editProfile: false
-} as ProfileType
-
-const accountValue = {
-    accountName: '',
-    balance: '',
-    dateCreated: '',
-    location: '',
-    editAccount: false
-} as accountType
-
-const userSlice = createSlice({
-    name: 'profile',
-    initialState: { ProfileValue },
-    reducers: {
-        editProfile: (state:initialStateProfileType) => {
-            state.ProfileValue.editProfile = !state.ProfileValue.editProfile;
-
-        }
-
-    }
-
+const storeSlice = createSlice({
+  name: 'store',
+  initialState: { initialStore },
+  reducers: {
+    reducerf: Reducer
+  }
 });
 
-const accountSlice = createSlice({
-    name: 'account',
-    initialState: { accountValue },
-    reducers: {
-        editAccount: (state:initialStateAccountType, action:PayloadAction<string>) => {
-            state.accountValue.accountName = action.payload;
 
-        }
-
-    }
-
-});
-
-// ============ reducers =============
-
-export const { editProfile } = userSlice.actions;
-export const { editAccount } = accountSlice.actions;
-
-
-// ============ stores =============
+export const { reducerf } = storeSlice.actions;
 
 export const store = configureStore({
     reducer: {
-        profile: userSlice.reducer,
-        account: accountSlice.reducer
+        store: storeSlice.reducer,
     }
 });
