@@ -2,8 +2,15 @@ import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import camera from "../../helper";
 
 function Index() {
+ const takePic =()=>{
+  camera.startCamera(400,800);
+camera.takeSnapshot();
+
+ }
+
   return (
     <Card sx={{ display: "flex", justifyContent: "center", width: "100%",height:'400px',background:'' }}>
       <div
@@ -28,7 +35,8 @@ function Index() {
           fullWidth={true}
           sx={{  }}
         />{" "}
-        <Button variant="contained" disableElevation>
+  
+        <Button variant="contained" disableElevation onClick={()=>takePic()}>
           Sign in
         </Button>
       </div>

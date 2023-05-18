@@ -17,26 +17,26 @@ function App() {
   const {balance,editAccount} = useSelector((state:any)=>state.store.initialStore);
 
   return (
-    <div>
-      <header>
-        {editAccount?<h1>hello edit? {editAccount}</h1>:<h1>pwamly{editAccount}</h1>}
-        <button onClick={() => dispatch(reducerf({editAccount:true}))}>change</button>
-      </header>
+   //  <div>
+   //    <header>
+   //      {editAccount?<h1>hello edit? {editAccount}</h1>:<h1>pwamly{editAccount}</h1>}
+   //      <button onClick={() => dispatch(reducerf({editAccount:true}))}>change</button>
+   //    </header>
 
-    </div>
+   //  </div>
 
-//     <Routes>
-//    <Route path="/" element={<Home/>}>
-//       <Route path="login" element={<Login/>} />  
-//    </Route>
+    <Routes>
+   <Route path="/" element={<Home/>}>
+      <Route path="login" element={<Login/>} />  
+   </Route>
 
-//    <Route element={<ProtectRoute/>}>
-//    <Route path="dashboard" element={<Dashboard/>} >  
-//       <Route path="user" element={<User/>} /> 
-//       <Route path="admin" element={<Admin/>} />  
-//    </Route>
-//    </Route>
-// </Routes>
+   <Route element={<ProtectRoute/>}>
+   <Route path="dashboard" element={<Dashboard/>} >  
+      <Route path="user" element={<User/>} /> 
+      <Route path="admin" element={<Admin/>} />  
+   </Route>
+   </Route>
+</Routes>
   );
 }
 

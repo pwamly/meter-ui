@@ -1,0 +1,37 @@
+#camera-stream{
+    display: flex;
+    justify-content: left;
+    background: gray;
+    height: 140px;
+    width: 200px;
+}
+
+#photo{
+    height: 200px; 
+    width: 200px;
+    background:gray;
+    cursor: pointer;
+}
+#photo:hover{
+    background:rgb(71, 71, 71);
+}
+
+#button-container{
+display: flex;
+flex-direction: row;
+gap: 4px;
+}
+
+#video-container{
+    /* background: green; */
+    height: 150px;
+
+}
+
+#video{
+    /* background: yellow; */
+    width: 200px;
+    height: 150px;
+
+    
+}
