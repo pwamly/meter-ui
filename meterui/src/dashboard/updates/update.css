@@ -1,0 +1,26 @@
+#main{
+    /* background: blue; */
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 4px;
+    text-align: center; /* Center the content within <td> elements */
+  }
+  
+  th {
+    font-size: 8px;
+    font-weight: bold;
+    /* background-color: red; */
+  }
+  
+  table {
+    border: 0.1px solid black;
+  }
+  

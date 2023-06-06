@@ -2,14 +2,9 @@ import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import camera from "../../helper";
 
 function Index() {
- const takePic =()=>{
-  camera.startCamera(400,800);
-camera.takeSnapshot();
 
- }
 
   return (
     <Card sx={{ display: "flex", justifyContent: "center", width: "100%",height:'400px',background:'' }}>
@@ -23,7 +18,7 @@ camera.takeSnapshot();
       >
         <TextField
           id="standard-multiline-flexible"
-          label="Meter No"
+          label="Room No"
           variant="filled"
           fullWidth={true}
           sx={{ textAlign:'center' }}
@@ -36,7 +31,7 @@ camera.takeSnapshot();
           sx={{  }}
         />{" "}
   
-        <Button variant="contained" disableElevation onClick={()=>takePic()}>
+        <Button variant="contained" disableElevation >
           Sign in
         </Button>
       </div>

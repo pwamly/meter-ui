@@ -6,6 +6,8 @@ import Login from './home/login/Index';
 import Dashboard from './dashboard/Index';
 import Home from './home/Index';
 import User from './dashboard/user/user';
+import Photo from "./dashboard/photo/photo";
+import Update from "./dashboard/updates/update";
 import Admin from './dashboard/admin/admin';
 import {ProtectRoute} from './dashboard/ProtectRoutes'
 import "./App.css";
@@ -26,14 +28,16 @@ function App() {
    //  </div>
 
     <Routes>
-   <Route path="/" element={<Home/>}>
+   <Route path="/home" element={<Home/>}>
       <Route path="login" element={<Login/>} />  
    </Route>
 
    <Route element={<ProtectRoute/>}>
-   <Route path="dashboard" element={<Dashboard/>} >  
-      <Route path="user" element={<User/>} /> 
-      <Route path="admin" element={<Admin/>} />  
+   <Route path="/" element={<Dashboard/>} >  
+      <Route path="photo" element={<Photo/>} /> 
+      <Route path="updates" element={<Update/>} />
+      <Route path="add-units" element={<Update/>} />  
+  
    </Route>
    </Route>
 </Routes>

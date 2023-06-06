@@ -5,7 +5,7 @@ export const ProtectRoute = () => {
   return (
 1? <Outlet />:
           <Navigate
-            to="/login"
+            to="/home/login"
           />
   );
 };

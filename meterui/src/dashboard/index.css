@@ -1,6 +1,6 @@
 #camera-stream{
     display: flex;
-    justify-content: left;
+    justify-content: center;
     background: gray;
     height: 140px;
     width: 200px;
