@@ -12,10 +12,11 @@ table {
     border: 1px solid black;
     padding: 4px;
     text-align: center; /* Center the content within <td> elements */
+    font-size: 8px;
+
   }
   
   th {
-    font-size: 8px;
     font-weight: bold;
     /* background-color: red; */
   }

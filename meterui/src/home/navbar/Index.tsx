@@ -1,23 +1,28 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import MenuIcon from '@mui/icons-material/Menu';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useNavigate } from "react-router-dom";
 
-const pages = ['Updates', 'Photos', 'Add Units'];
-const settings = ['Profile',  'Logout'];
+const pages = ["Updates", "Camera", "Add Units"];
+const settings = ["Profile", "Logout"];
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null
+  );
+  const navigate = useNavigate();
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -30,6 +35,18 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
+  const handleNavigation = (page: string): void => {
+    if (page == "Updates") {
+      navigate("/updates");
+    }
+    if (page == "Camera") {
+      navigate("/photo");
+    }
+    if (page == "Add Units") {
+      navigate("/add-units");
+    }
+  };
+
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
@@ -38,11 +55,20 @@ function ResponsiveAppBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Avatar alt="User Logo" src="/path/to/user-logo.png" onClick={handleOpenUserMenu} />
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml: 1 }} color="yellow">
+          <Avatar
+            alt="User Logo"
+            src="/path/to/user-logo.png"
+            onClick={handleOpenUserMenu}
+          />
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, ml: 1 }}
+            color="yellow"
+          >
             Room 1
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {pages.map((page) => (
               <Button key={page} color="inherit">
                 {page}
@@ -54,7 +80,7 @@ function ResponsiveAppBar() {
             aria-controls="nav-menu"
             aria-haspopup="true"
             onClick={handleOpenNavMenu}
-            sx={{ display: { xs: 'block', sm: 'none' } }}
+            sx={{ display: { xs: "block", sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
@@ -67,7 +93,7 @@ function ResponsiveAppBar() {
         onClose={handleCloseNavMenu}
       >
         {pages.map((page) => (
-          <MenuItem key={page} onClick={handleCloseNavMenu}>
+          <MenuItem key={page} onClick={() => handleNavigation(page)}>
             {page}
           </MenuItem>
         ))}
