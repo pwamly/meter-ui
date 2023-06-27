@@ -41,7 +41,7 @@ function Photo(){
               width: "90%",
             }}
           >
-            <div id="camera-stream">
+            {imgSrc==null?<div id="camera-stream">
               <Webcam
                 audio={false}
                 ref={webcamRef}
@@ -50,19 +50,18 @@ function Photo(){
                 minScreenshotWidth={80}
                 minScreenshotHeight={80}
               />
-            </div>
+            </div>:<img src={imgSrc} alt="img" />}
             <input name="" placeholder="Enter Unit Readings (1130.7)" />
             <div id="button-container">
-              <Button variant="contained" disableElevation fullWidth onClick={()=>capture()}>
+              {imgSrc==null?<Button variant="contained" disableElevation fullWidth onClick={()=>capture()}>
                 takePhoto
-              </Button>
-              {imgSrc && <img src={imgSrc} alt="img" />}
+              </Button>:<Button variant="contained">Save</Button>}
               <Button
                 variant="contained"
                 disableElevation
                 fullWidth
                 color="error"
-                disabled
+                onClick={()=>setImgSrc(null)}
               >
                 Cancel
               </Button>
